@@ -21,7 +21,7 @@ class Agent:
             Dense(512, activation='elu'),
             Dense(1, activation='linear')
         ])
-        model.compile(loss='mean_squared_error', optimizer=Adam(lr=.1))
+        model.compile(loss='mean_squared_error', optimizer=Adam(lr=.001))
         self.model = model
 
     def train(self, X, y):
