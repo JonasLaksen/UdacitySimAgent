@@ -11,15 +11,15 @@ class Agent:
         model = Sequential([
             Conv2D(32, (3,3), input_shape=(160,320,3), activation='relu', data_format='channels_last'),
             MaxPooling2D(pool_size=(3,3)),
-            Conv2D(32, (3,3), activation='relu'),
+            Conv2D(32, (3,3), activation='elu'),
             MaxPooling2D(pool_size=(3,3)),
-            Conv2D(64, (3,3), activation='relu'),
+            Conv2D(64, (3,3), activation='elu'),
             MaxPooling2D(pool_size=(3,3)),
-            Conv2D(128, (3,3), activation='relu'),
+            Conv2D(128, (3,3), activation='elu'),
             Flatten(),
-            Dense(1024, activation='relu'),
-            Dense(512, activation='relu'),
-            Dense(1, activation='sigmoid')
+            Dense(1024, activation='elu'),
+            Dense(512, activation='elu'),
+            Dense(1, activation='linear')
         ])
         model.compile(loss='mean_squared_error', optimizer=Adam(lr=.1))
         self.model = model
